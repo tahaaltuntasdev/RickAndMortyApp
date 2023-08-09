@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.data.model.Result
-import com.example.rickandmortyapp.data.model.RickAndMortyDataModel
 import com.example.rickandmortyapp.databinding.RecyclerItemRowBinding
 
 class CustomAdapter(
@@ -12,7 +11,6 @@ class CustomAdapter(
 
 ):
     RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
-       inner class ViewHolder(var binding: RecyclerItemRowBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = RecyclerItemRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -27,5 +25,6 @@ class CustomAdapter(
         holder.binding.characterName.text = characterNameList[position].name
     }
 
+    inner class ViewHolder(var binding: RecyclerItemRowBinding) : RecyclerView.ViewHolder(binding.root)
 
 }
