@@ -22,9 +22,12 @@ class CustomAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.characterName.text = characterNameList[position].name
+       holder.onBind(characterNameList[position])
     }
-
-    inner class ViewHolder(var binding: RecyclerItemRowBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(var binding: RecyclerItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(result: Result) {
+            binding.characterName.text = result.name
+        }
+    }
 
 }
