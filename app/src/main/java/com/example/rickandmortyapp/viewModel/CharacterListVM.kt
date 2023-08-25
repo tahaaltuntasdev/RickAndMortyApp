@@ -3,32 +3,26 @@ package com.example.rickandmortyapp.viewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rickandmortyapp.data.model.Result
+import com.example.rickandmortyapp.UiState
+import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.data.remote.RickAndMortyApiService
 import kotlinx.coroutines.launch
 
 class CharacterListVM : ViewModel() {
     private val rickAndMortyApiService = RickAndMortyApiService()
-    val characterNameList = MutableLiveData<ArrayList<Result>>()
+    val uiState = MutableLiveData<UiState>(UiState.Loading)
 
     init {
-        getNameData()
+        getCharacterList()
     }
 
-     fun getNameData() {
-        viewModelScope.launch {
+     private fun getCharacterList() {
+        viewModelScope.launch() {
             val response = rickAndMortyApiService.getCharacter()
             if (response.isSuccessful) {
-                val list = arrayListOf<Result>()
                 response.body()?.let {
-                    val name = response.body()?.results
-                    if (name != null) {
-                        for (i in name) {
-                            list.add(i)
-                        }
-                    }
+                    uiState.value = UiState.Success(it.characters)
                 }
-                characterNameList.value = list
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.rickandmortyapp.data.remote
 
+import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.data.model.RickAndMortyDataModel
 import com.example.rickandmortyapp.util.Constants.BASE_URL
 import retrofit2.Response
@@ -16,5 +17,9 @@ class RickAndMortyApiService {
 
     suspend fun getCharacter(): Response<RickAndMortyDataModel> {
         return rickAndMortyApi.getCharacterName()
+    }
+
+    suspend fun getCharacterWithId(id: Int): Response<Character> {
+        return rickAndMortyApi.getCharacterWithId(id)
     }
 }

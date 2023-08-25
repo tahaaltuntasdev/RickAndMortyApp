@@ -6,4 +6,5 @@
         <item name="android:statusBarColor">@color/black</item>
     </style>
     <style name="Theme.RickAndMortyApp" parent="Base.Theme.RickAndMortyApp" />
+
 </resources>

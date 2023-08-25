@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
+
 }
 
 android {
@@ -53,5 +55,20 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    //lifecycle
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+
+    //Lottie
+    implementation ("com.airbnb.android:lottie:5.2.0")
+
+    //Gif
+    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.19")
 }
