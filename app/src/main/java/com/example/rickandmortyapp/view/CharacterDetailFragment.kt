@@ -13,7 +13,6 @@ import com.example.rickandmortyapp.UiState
 import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmortyapp.viewModel.CharacterDetailVM
-import com.example.rickandmortyapp.viewModel.CharacterListVM
 
 
 class CharacterDetailFragment : Fragment() {
@@ -63,8 +62,6 @@ class CharacterDetailFragment : Fragment() {
                 else -> {}
             }
         }
-
-
 
         binding.backImg.setOnClickListener {
             findNavController().navigate(CharacterDetailFragmentDirections

@@ -4,7 +4,6 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.rickandmortyapp.UiState
-import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.data.remote.RickAndMortyApiService
 import kotlinx.coroutines.launch
 
@@ -15,7 +14,6 @@ class CharacterListVM : ViewModel() {
     init {
         getCharacterList()
     }
-
      private fun getCharacterList() {
         viewModelScope.launch() {
             val response = rickAndMortyApiService.getCharacter()
@@ -27,3 +25,5 @@ class CharacterListVM : ViewModel() {
         }
     }
 }
+
+

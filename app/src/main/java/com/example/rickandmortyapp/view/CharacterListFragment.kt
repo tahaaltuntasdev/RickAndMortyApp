@@ -27,7 +27,6 @@ class CharacterListFragment : Fragment(R.layout.fragment_character_list),
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentCharacterListBinding.inflate(inflater)
-
         return binding.root
     }
 

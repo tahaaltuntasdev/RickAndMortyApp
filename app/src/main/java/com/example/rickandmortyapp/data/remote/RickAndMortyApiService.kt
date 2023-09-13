@@ -16,10 +16,11 @@ class RickAndMortyApiService {
         .create(RickAndMortyApi::class.java)
 
     suspend fun getCharacter(): Response<RickAndMortyDataModel> {
-        return rickAndMortyApi.getCharacterName()
+        return rickAndMortyApi.getCharacter()
     }
 
     suspend fun getCharacterWithId(id: Int): Response<Character> {
         return rickAndMortyApi.getCharacterWithId(id)
     }
 }
+

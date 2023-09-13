@@ -12,7 +12,7 @@ import com.example.rickandmortyapp.data.model.Character
 import com.example.rickandmortyapp.databinding.RecyclerItemRowBinding
 
 class CustomAdapter(
-    private var characterNameList: ArrayList<Character>,
+    private var characterList: ArrayList<Character>,
     val listener: RecyclerViewEvent
 ):
     RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
@@ -23,12 +23,12 @@ class CustomAdapter(
     }
 
     override fun getItemCount(): Int {
-        return characterNameList.size
+        return characterList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.onBind(characterNameList[position])
-        val url = characterNameList[position].image
+        holder.onBind(characterList[position])
+        val url = characterList[position].image
         Glide.with(holder.itemView.context).load(url).fitCenter().into(holder.binding.characterImg)
     }
     inner class ViewHolder(var binding: RecyclerItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -59,14 +59,14 @@ class CustomAdapter(
                     binding.favoriteStar.progress = 0.0F
                     sp.remove(character.id.toString())
                 }
-                sp.commit()
+                sp.apply()
             }
         }
         init {
             binding.rvItem.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    listener.onItemClick(characterNameList.get(position).id)
+                    listener.onItemClick(characterList.get(position).id)
                 }
             }
         }
@@ -76,7 +76,7 @@ class CustomAdapter(
     }
 
     fun addItems(characterList: ArrayList<Character>){
-        characterNameList = characterList
+        this.characterList = characterList
         notifyDataSetChanged()
     }
 }

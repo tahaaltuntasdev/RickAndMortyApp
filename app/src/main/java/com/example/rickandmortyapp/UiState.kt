@@ -7,3 +7,4 @@ sealed class UiState {
     data class Success(val data: List<Character>) : UiState()
     data class SuccessId(val dataId: Character) : UiState()
 }
+
